@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv1"
+        android:text="null"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt1"
+        android:text="root状态：静默安装应用"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintRight_toRightOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt2"
+        android:text="非root状态：静默安装应用"
+        app:layout_constraintLeft_toLeftOf="@id/bt1"
+        app:layout_constraintRight_toRightOf="@id/bt1"
+        app:layout_constraintTop_toBottomOf="@id/bt1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt3"
+        android:text="bt3"
+        app:layout_constraintLeft_toLeftOf="@id/bt2"
+        app:layout_constraintRight_toRightOf="@id/bt2"
+        app:layout_constraintTop_toBottomOf="@id/bt2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt4"
+        android:text="bt2"
+        app:layout_constraintLeft_toLeftOf="@id/bt3"
+        app:layout_constraintRight_toRightOf="@id/bt3"
+        app:layout_constraintTop_toBottomOf="@id/bt3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt5"
+        android:text="bt3"
+        app:layout_constraintLeft_toLeftOf="@id/bt4"
+        app:layout_constraintRight_toRightOf="@id/bt4"
+        app:layout_constraintTop_toBottomOf="@id/bt4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt6"
+        android:text="bt6"
+        app:layout_constraintLeft_toLeftOf="@id/bt5"
+        app:layout_constraintRight_toRightOf="@id/bt5"
+        app:layout_constraintTop_toBottomOf="@id/bt5" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt7"
+        android:text="bt2"
+        app:layout_constraintLeft_toLeftOf="@id/bt6"
+        app:layout_constraintRight_toRightOf="@id/bt6"
+        app:layout_constraintTop_toBottomOf="@id/bt6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt8"
+        android:text="检测更新结果"
+        app:layout_constraintLeft_toLeftOf="@id/bt7"
+        app:layout_constraintRight_toRightOf="@id/bt7"
+        app:layout_constraintTop_toBottomOf="@id/bt7" />
+
+</android.support.constraint.ConstraintLayout>
