@@ -6,7 +6,12 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.IBinder;
 
+import com.wxpayface.os.IWxDeviceManager;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class Utils {
@@ -159,6 +164,30 @@ public class Utils {
                     context.getPackageName(), 0);
             return packageInfo.packageName;
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static IBinder getSystemService(String serviceName) {
+        //反射获取ServiceManager
+        try {
+            //指定反射类
+            Class<?> forName = Class.forName("android.os.ServiceManager");
+            //获取方法，参数是String类型
+            Method method = forName.getMethod("getService", String.class);
+            //传入参数
+            IBinder iBinder = (IBinder) method.invoke(null, serviceName);
+            //初始化AIDL
+            //service = IWxDeviceManager.Stub.asInterface(iBinder);
+            return iBinder;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;

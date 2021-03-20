@@ -18,75 +18,94 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt1"
-        android:text="root状态：静默安装应用"
+        android:text="1.通过无障碍服务-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/tv1"
         app:layout_constraintRight_toRightOf="@id/tv1"
         app:layout_constraintTop_toBottomOf="@id/tv1" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt2"
-        android:text="非root状态：静默安装应用"
+        android:text="2.系统定制PackageInstaller-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt1"
         app:layout_constraintRight_toRightOf="@id/bt1"
         app:layout_constraintTop_toBottomOf="@id/bt1" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt3"
-        android:text="bt3"
+        android:text="3.root状态下，使用pm命令-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt2"
         app:layout_constraintRight_toRightOf="@id/bt2"
         app:layout_constraintTop_toBottomOf="@id/bt2" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt4"
-        android:text="bt2"
+        android:text="4.非root状态使用hook技术-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt3"
         app:layout_constraintRight_toRightOf="@id/bt3"
         app:layout_constraintTop_toBottomOf="@id/bt3" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt5"
-        android:text="bt3"
+        android:text="5.通过调用系统定制AIDL接口-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt4"
         app:layout_constraintRight_toRightOf="@id/bt4"
         app:layout_constraintTop_toBottomOf="@id/bt4" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt6"
-        android:text="bt6"
+        android:text="6.通过反射系统定制静态实例-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt5"
         app:layout_constraintRight_toRightOf="@id/bt5"
         app:layout_constraintTop_toBottomOf="@id/bt5" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt7"
-        android:text="bt2"
+        android:text="7.通过调用系统定制JNI接口-静默更新"
         app:layout_constraintLeft_toLeftOf="@id/bt6"
         app:layout_constraintRight_toRightOf="@id/bt6"
         app:layout_constraintTop_toBottomOf="@id/bt6" />
 
+
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt8"
-        android:text="检测更新结果"
+        android:text="选择应用版本更新"
         app:layout_constraintLeft_toLeftOf="@id/bt7"
         app:layout_constraintRight_toRightOf="@id/bt7"
         app:layout_constraintTop_toBottomOf="@id/bt7" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt9"
+        android:text="检测更新结果"
+        app:layout_constraintLeft_toLeftOf="@id/bt8"
+        app:layout_constraintRight_toRightOf="@id/bt8"
+        app:layout_constraintTop_toBottomOf="@id/bt8" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt10"
+        android:text="关于"
+        app:layout_constraintLeft_toLeftOf="@id/bt9"
+        app:layout_constraintRight_toRightOf="@id/bt9"
+        app:layout_constraintTop_toBottomOf="@id/bt9" />
 
 </android.support.constraint.ConstraintLayout>
