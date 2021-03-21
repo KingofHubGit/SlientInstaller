@@ -1,10 +1,16 @@
 package com.dotorom.slientinstaller.utils;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityOptions;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 
@@ -15,6 +21,22 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 public class Utils {
+    public static void startActivityByClass(Context context,  Class<?> skip){
+        context.startActivity(new Intent(context, skip));
+    }
+
+    public static void startActivityByAction(Context context, String skipAction){
+        context.startActivity(new Intent(skipAction));
+    }
+
+
+    public static void startActivityByComponent(Context context, String skipPackages, String skipClassName){
+        ComponentName cn = new ComponentName(skipPackages, skipClassName) ;
+        Intent intent = new Intent() ;
+        intent.setComponent(cn) ;
+        context.startActivity(intent) ;
+    }
+
     public static boolean checkAppInstalled(Context context, String pkgName) throws PackageManager.NameNotFoundException {
         if (pkgName== null || pkgName.isEmpty()) {
             return false;
@@ -192,6 +214,32 @@ public class Utils {
         }
         return null;
     }
+
+    private void translucentActivity(Activity activity) {
+
+        try {
+            activity.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            activity.getWindow().getDecorView().setBackground(null);
+            Method activityOptions = Activity.class.getDeclaredMethod("getActivityOptions");
+            activityOptions.setAccessible(true);
+            Object options = activityOptions.invoke(activity);
+
+            Class<?>[] classes = Activity.class.getDeclaredClasses();
+            Class<?> aClass = null;
+            for (Class clazz : classes) {
+                if (clazz.getSimpleName().contains("TranslucentConversionListener")) {
+                    aClass = clazz;
+                }
+            }
+            Method method = Activity.class.getDeclaredMethod("convertToTranslucent",
+                    aClass, ActivityOptions.class);
+            method.setAccessible(true);
+            method.invoke(activity, null, options);
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+
 
 
 }

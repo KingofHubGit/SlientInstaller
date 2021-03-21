@@ -36,15 +36,16 @@ public class MethodByReflcetPMS extends Method{
             }
         } else {
             Toast.makeText(MyApplication.getAppContext(), "文件不存在", Toast.LENGTH_SHORT).show();
+            return Method.INSTALL_FAILED;
         }
-        return 0;
+        return Method.INSTALL_START;
     }
 
     private class MyObserver extends IPackageInstallObserver.Stub{
         @Override
         public void packageInstalled(String packageName, int returnCode)
                 throws RemoteException {
-            Log.e(TAG, "returnCode:"+returnCode);
+                Log.e(TAG, "returnCode:"+returnCode);
 
         }
     }
@@ -128,7 +129,7 @@ public class MethodByReflcetPMS extends Method{
             method = activityTherad.getMethod("getPackageManager", paramTypes);
             Object PackageManagerService = method.invoke(activityTherad);
             pmService = PackageManagerService.getClass();
-            if(type == INSTALL_OPT) {
+            if(type == INSTALL_OP) {
                 Class<?> paramTypes1[] = getParamTypes(pmService, "installPackageAsUser");
                 method = pmService.getMethod("installPackageAsUser", paramTypes1);
                 method.invoke(PackageManagerService, installPath, null, 0x00000040, packageName, getUserId(Binder.getCallingUid()));//getUserId

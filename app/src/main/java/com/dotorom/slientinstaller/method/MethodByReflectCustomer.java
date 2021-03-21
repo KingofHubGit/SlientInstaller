@@ -24,12 +24,15 @@ public class MethodByReflectCustomer extends Method {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
+            return Method.INSTALL_FAILED;
         } catch (InvocationTargetException e) {
             e.printStackTrace();
+            return Method.INSTALL_FAILED;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            return Method.INSTALL_FAILED;
         }
-        return 0;
+        return Method.INSTALL_SUCCESSED;
     }
 
 }

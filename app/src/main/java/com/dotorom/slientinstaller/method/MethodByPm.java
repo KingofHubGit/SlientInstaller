@@ -11,14 +11,12 @@ public class MethodByPm extends Method {
     @Override
     public int install(String appPath) {
         try {
-            //installRet = CmdUtils.execShellCommand("pm install -r " + apkFile);
-            //installRet = CmdUtils.execShell(" pm install -i " + "com.dotorom.slientinstaller" +" --user 0 "+ " /sdcard/Download/InstallApks/debugtest_V2.1.apk");
-            String installRet = ShellUtil.execute(" pm install -i " + "com.dotorom.slientinstaller" + " --user 0 " + " /sdcard/Download/InstallApks/debugtest_V2.1.apk", 10000);
-            //installRet = CmdUtils.execShellCommand("pm install -r " + " sdcard/Download/InstallApks/debugtest_V2.1.apk");
+            String installRet = ShellUtil.execute(" pm install -i " + "com.dotorom.slientinstaller" + " --user 0 " + appPath, 10000);
             Log.e(TAG, "installRet :" + installRet);
         } catch (Exception e) {
             e.printStackTrace();
+            return Method.INSTALL_FAILED;
         }
-        return 0;
+        return Method.INSTALL_SUCCESSED;
     }
 }

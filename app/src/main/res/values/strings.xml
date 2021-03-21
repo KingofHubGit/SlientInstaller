@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WxSlientInstaller</string>
+    <string name="accessibility_service_description">微信刷脸无障碍安装服务，虽然弹出安装界面，但无需用户的任何操作就可以自动安装程序。</string>
 </resources>
